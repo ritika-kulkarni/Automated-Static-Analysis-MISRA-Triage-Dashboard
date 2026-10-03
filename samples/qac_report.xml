@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QAC>
+  <Diagnostic msg="Rule-21.3" file="src/app/hmi/HmiMgr.c" line="12" col="8"
+              severity="high" category="mandatory"
+              text="The memory allocation and deallocation functions of &lt;stdlib.h&gt; shall not be used (Mandatory)."/>
+  <Diagnostic msg="Rule-10.1" file="src/bsw/can/CanIf_Tx.c" line="55" col="2"
+              severity="medium" category="required" asil="B"
+              text="Operands shall not be of an inappropriate essential type."/>
+  <Message code="Rule-2.2" filename="src/app/hmi/HmiMgr.c" line="30" column="1"
+           level="low" group="advisory"
+           text="There shall be no dead code."/>
+</QAC>

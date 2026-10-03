@@ -1,0 +1,21 @@
+# Longest-prefix match: file path → SWC module owner + ASIL
+mappings:
+  - prefix: src/bsw/can
+    swc: CanIf
+    owner: team-can@example.com
+    asil: B
+
+  - prefix: src/bsw/nvm
+    swc: NvM
+    owner: team-mem@example.com
+    asil: C
+
+  - prefix: src/app/brake
+    swc: BrakeCtrl
+    owner: team-chassis@example.com
+    asil: D
+
+  - prefix: src/app/hmi
+    swc: HmiMgr
+    owner: team-hmi@example.com
+    asil: A

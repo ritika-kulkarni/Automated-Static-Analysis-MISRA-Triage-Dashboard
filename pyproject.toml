@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "misra-triage"
+version = "1.0.0"
+description = "Post-build CLI for Polyspace/QAC MISRA triage, baseline diffing, merge gating, and Jira ticket creation."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "MISRA Triage Automation" }]
+keywords = ["misra", "polyspace", "qac", "sarif", "static-analysis", "automotive", "asil"]
+dependencies = [
+  "click>=8.1",
+  "eval-type-backport>=0.2; python_version < '3.10'",
+  "pydantic>=2.6",
+  "pydantic-settings>=2.2",
+  "PyYAML>=6.0",
+  "requests>=2.31",
+  "tenacity>=8.2",
+  "rich>=13.7",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-cov>=4.1",
+  "ruff>=0.3",
+]
+
+[project.scripts]
+misra-triage = "misra_triage.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/misra_triage"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/misra_triage", "config", "samples", "tests", "docs", "README.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q --strict-markers"
+markers = [
+  "integration: end-to-end workflow tests",
+  "edge: edge-case and resilience tests",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.coverage.run]
+source = ["misra_triage"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+fail_under = 80

@@ -1,0 +1,17 @@
+# Longest-prefix match: file path → DOORS requirement ID
+mappings:
+  - prefix: src/bsw/can
+    doors_id: REQ-CAN-001
+    swc: CanIf
+
+  - prefix: src/bsw/nvm
+    doors_id: REQ-NVM-014
+    swc: NvM
+
+  - prefix: src/app/brake
+    doors_id: REQ-BRK-003
+    swc: BrakeCtrl
+
+  - prefix: src/app/hmi
+    doors_id: REQ-HMI-022
+    swc: HmiMgr

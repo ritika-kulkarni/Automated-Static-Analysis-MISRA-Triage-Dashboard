@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BugFinderResults>
+  <Check check="MISRA C:2012 Rule-17.3" file="src/bsw/nvm/NvM_Write.c" line="101" col="4"
+         color="error" category="mandatory" asil="C"
+         msg="A function shall not be declared implicitly (Mandatory)."/>
+  <Check check="MISRA C:2012 Rule-15.5" file="src/bsw/can/CanIf.c" line="90" col="1"
+         color="warning" category="advisory"
+         msg="A function should have a single point of exit at the end."/>
+  <Result rule="Dir-4.12" file="src/app/brake/BrakeCtrl.c" line="200" column="6">
+    <Message>Dynamic memory allocation shall not be used (Mandatory).</Message>
+    <Category>mandatory</Category>
+    <Severity>error</Severity>
+    <ASIL>D</ASIL>
+  </Result>
+</BugFinderResults>

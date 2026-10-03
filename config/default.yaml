@@ -1,0 +1,32 @@
+baseline_path: baseline/violations.json
+report_output_dir: reports
+log_level: INFO
+
+gate:
+  block_misra_categories:
+    - mandatory
+  block_asil_levels:
+    - C
+    - D
+  fail_on_parse_errors: true
+  allow_empty_reports: false
+
+jira:
+  enabled: true
+  dry_run: true
+  base_url: https://jira.example.com
+  project_key: SWQ
+  issue_type: Bug
+  api_token_env: JIRA_API_TOKEN
+  user_email_env: JIRA_USER_EMAIL
+  max_retries: 3
+  timeout_seconds: 30
+  labels:
+    - misra-triage
+    - static-analysis
+
+mapping:
+  owner_map_path: config/owner_map.yaml
+  doors_map_path: config/doors_map.yaml
+  default_owner: unassigned
+  default_asil: UNKNOWN

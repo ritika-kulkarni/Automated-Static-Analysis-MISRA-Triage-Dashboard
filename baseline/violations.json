@@ -1,0 +1,243 @@
+{
+  "count": 9,
+  "note": "Baseline updated from triage CLI",
+  "updated_at": "2026-10-03T07:49:44.182708+00:00",
+  "violations": [
+    {
+      "asil_level": "D",
+      "column": 5,
+      "doors_req_id": "REQ-BRK-003",
+      "file_path": "src/app/brake/BrakeCtrl.c",
+      "fingerprint": "bf7694f330a154d1fc3e9b91fd08aef0750caea66925bf9422e048d134ee5bf4",
+      "line": 42,
+      "message": "The value of an object with automatic storage duration shall not be read before it has been set (Mandatory).",
+      "misra_category": "mandatory",
+      "owner": "team-chassis@example.com",
+      "raw": {
+        "level": "error",
+        "properties": {
+          "category": "mandatory",
+          "tags": [
+            "ASIL-D"
+          ]
+        },
+        "tool": "Polyspace Bug Finder"
+      },
+      "rule_id": "rule-9.1",
+      "severity": "critical",
+      "swc_module": "BrakeCtrl",
+      "tool": "polyspace"
+    },
+    {
+      "asil_level": "UNKNOWN",
+      "column": 1,
+      "doors_req_id": "REQ-CAN-001",
+      "file_path": "src/bsw/can/CanIf.c",
+      "fingerprint": "ce61d6af9573d2b83832f87f1bee51e2ecac350a60285374e97eeb5976c0fdc4",
+      "line": 18,
+      "message": "A compatible declaration shall be visible when an object or function with external linkage is defined.",
+      "misra_category": "required",
+      "owner": "team-can@example.com",
+      "raw": {
+        "level": "warning",
+        "properties": {
+          "category": "required",
+          "tags": [
+            "maintainability"
+          ]
+        },
+        "tool": "Polyspace Bug Finder"
+      },
+      "rule_id": "rule-8.4",
+      "severity": "high",
+      "swc_module": "CanIf",
+      "tool": "polyspace"
+    },
+    {
+      "asil_level": "C",
+      "column": 3,
+      "doors_req_id": "REQ-NVM-014",
+      "file_path": "src/bsw/nvm/NvM_Read.c",
+      "fingerprint": "d44fc19bb817198e1f90f3530a425fa1d6632950c22592070355f46d0abc5889",
+      "line": 77,
+      "message": "Run-time failures shall be minimized (Mandatory).",
+      "misra_category": "mandatory",
+      "owner": "team-mem@example.com",
+      "raw": {
+        "level": "error",
+        "properties": {
+          "category": "mandatory",
+          "tags": [
+            "ASIL-C"
+          ]
+        },
+        "tool": "Polyspace Bug Finder"
+      },
+      "rule_id": "dir-4.1",
+      "severity": "critical",
+      "swc_module": "NvM",
+      "tool": "polyspace"
+    },
+    {
+      "asil_level": "UNKNOWN",
+      "column": 4,
+      "doors_req_id": "REQ-NVM-014",
+      "file_path": "src/bsw/nvm/NvM_Write.c",
+      "fingerprint": "66a5d751adc3c54f4a4f1bae7f5bd90ce189c495085c4c326798c52d5c15917d",
+      "line": 101,
+      "message": "A function shall not be declared implicitly (Mandatory).",
+      "misra_category": "mandatory",
+      "owner": "team-mem@example.com",
+      "raw": {
+        "attrib": {
+          "asil": "C",
+          "category": "mandatory",
+          "check": "MISRA C:2012 Rule-17.3",
+          "col": "4",
+          "color": "error",
+          "file": "src/bsw/nvm/NvM_Write.c",
+          "line": "101",
+          "msg": "A function shall not be declared implicitly (Mandatory)."
+        },
+        "tag": "Check"
+      },
+      "rule_id": "rule-17.3",
+      "severity": "critical",
+      "swc_module": "NvM",
+      "tool": "polyspace"
+    },
+    {
+      "asil_level": "UNKNOWN",
+      "column": 1,
+      "doors_req_id": "REQ-CAN-001",
+      "file_path": "src/bsw/can/CanIf.c",
+      "fingerprint": "a5a19925f4ca44032791e60389f6e563aeea945929f8c4002a2634add516ef79",
+      "line": 90,
+      "message": "A function should have a single point of exit at the end.",
+      "misra_category": "advisory",
+      "owner": "team-can@example.com",
+      "raw": {
+        "attrib": {
+          "category": "advisory",
+          "check": "MISRA C:2012 Rule-15.5",
+          "col": "1",
+          "color": "warning",
+          "file": "src/bsw/can/CanIf.c",
+          "line": "90",
+          "msg": "A function should have a single point of exit at the end."
+        },
+        "tag": "Check"
+      },
+      "rule_id": "rule-15.5",
+      "severity": "high",
+      "swc_module": "CanIf",
+      "tool": "polyspace"
+    },
+    {
+      "asil_level": "UNKNOWN",
+      "column": 6,
+      "doors_req_id": "REQ-BRK-003",
+      "file_path": "src/app/brake/BrakeCtrl.c",
+      "fingerprint": "fc327ecd84850330e7022dab711db17537d403685b036b04bef1501f44185713",
+      "line": 200,
+      "message": "Dynamic memory allocation shall not be used (Mandatory).",
+      "misra_category": "mandatory",
+      "owner": "team-chassis@example.com",
+      "raw": {
+        "attrib": {
+          "column": "6",
+          "file": "src/app/brake/BrakeCtrl.c",
+          "line": "200",
+          "rule": "Dir-4.12"
+        },
+        "tag": "Result"
+      },
+      "rule_id": "dir-4.12",
+      "severity": "critical",
+      "swc_module": "BrakeCtrl",
+      "tool": "polyspace"
+    },
+    {
+      "asil_level": "UNKNOWN",
+      "column": 8,
+      "doors_req_id": "REQ-HMI-022",
+      "file_path": "src/app/hmi/HmiMgr.c",
+      "fingerprint": "35a2bf95f08ec7239fd0c21448b8f59e4da07570390b27e43c29d0f4e2683bb0",
+      "line": 12,
+      "message": "The memory allocation and deallocation functions of <stdlib.h> shall not be used (Mandatory).",
+      "misra_category": "mandatory",
+      "owner": "team-hmi@example.com",
+      "raw": {
+        "attrib": {
+          "category": "mandatory",
+          "col": "8",
+          "file": "src/app/hmi/HmiMgr.c",
+          "line": "12",
+          "msg": "Rule-21.3",
+          "severity": "high",
+          "text": "The memory allocation and deallocation functions of <stdlib.h> shall not be used (Mandatory)."
+        },
+        "tag": "Diagnostic"
+      },
+      "rule_id": "rule-21.3",
+      "severity": "high",
+      "swc_module": "HmiMgr",
+      "tool": "qac"
+    },
+    {
+      "asil_level": "UNKNOWN",
+      "column": 2,
+      "doors_req_id": "REQ-CAN-001",
+      "file_path": "src/bsw/can/CanIf_Tx.c",
+      "fingerprint": "08f537680dd3876fc6e866052fccc04895831d30baf6a77a5a96024cc775d564",
+      "line": 55,
+      "message": "Operands shall not be of an inappropriate essential type.",
+      "misra_category": "required",
+      "owner": "team-can@example.com",
+      "raw": {
+        "attrib": {
+          "asil": "B",
+          "category": "required",
+          "col": "2",
+          "file": "src/bsw/can/CanIf_Tx.c",
+          "line": "55",
+          "msg": "Rule-10.1",
+          "severity": "medium",
+          "text": "Operands shall not be of an inappropriate essential type."
+        },
+        "tag": "Diagnostic"
+      },
+      "rule_id": "rule-10.1",
+      "severity": "medium",
+      "swc_module": "CanIf",
+      "tool": "qac"
+    },
+    {
+      "asil_level": "UNKNOWN",
+      "column": 1,
+      "doors_req_id": "REQ-HMI-022",
+      "file_path": "src/app/hmi/HmiMgr.c",
+      "fingerprint": "55b3fe591a4bc497f002f393fc545c8558ed21550fda33c6da41e62dc5780be2",
+      "line": 30,
+      "message": "There shall be no dead code.",
+      "misra_category": "advisory",
+      "owner": "team-hmi@example.com",
+      "raw": {
+        "attrib": {
+          "code": "Rule-2.2",
+          "column": "1",
+          "filename": "src/app/hmi/HmiMgr.c",
+          "group": "advisory",
+          "level": "low",
+          "line": "30",
+          "text": "There shall be no dead code."
+        },
+        "tag": "Message"
+      },
+      "rule_id": "rule-2.2",
+      "severity": "low",
+      "swc_module": "HmiMgr",
+      "tool": "qac"
+    }
+  ]
+}
