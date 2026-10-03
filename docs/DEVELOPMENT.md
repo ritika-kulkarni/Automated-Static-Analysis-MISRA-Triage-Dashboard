@@ -1,5 +1,9 @@
 # Development Guide
 
+Contributor guide for extending and testing `misra-triage`.
+
+Also see: [Architecture](ARCHITECTURE.md) · [ADRs](ADR.md) · [package READMEs](../src/misra_triage/README.md)
+
 ## Setup
 
 ```bash

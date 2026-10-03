@@ -9,17 +9,24 @@ Post-build CLI for **Polyspace Bug Finder** / **Helix QAC** that turns noisy sta
 | Gate | Fail CI on **new** MISRA C:2012 **Mandatory** or **ASIL-C/D** |
 | Ticket | Grouped Jira issues → SWC owner + DOORS requirement ID |
 
+---
+
 ## Documentation
 
 | Guide | Description |
 |-------|-------------|
-| [docs/README.md](docs/README.md) | Documentation index |
-| [Architecture](docs/ARCHITECTURE.md) | System design + Mermaid diagrams |
-| [User Guide](docs/USER_GUIDE.md) | CLI workflows, exit codes, CI |
+| **[docs/README.md](docs/README.md)** | Full documentation index |
+| [Architecture](docs/ARCHITECTURE.md) | C4, sequences, domain model, gate FSM, Mermaid diagrams |
+| [User Guide](docs/USER_GUIDE.md) | CLI workflows, exit codes, CI recipes |
 | [Configuration](docs/CONFIGURATION.md) | YAML & secrets reference |
+| [Operations](docs/OPERATIONS.md) | Runbook & incident playbooks |
 | [Development](docs/DEVELOPMENT.md) | Setup, tests, extension points |
+| [ADRs](docs/ADR.md) | Architecture decision records |
+| [FAQ](docs/FAQ.md) | Common questions |
 
-Folder READMEs: [`config/`](config/README.md) · [`samples/`](samples/README.md) · [`tests/`](tests/README.md)
+**Folder READMEs:** [`config/`](config/README.md) · [`samples/`](samples/README.md) · [`tests/`](tests/README.md) · [`baseline/`](baseline/README.md) · [`reports/`](reports/README.md) · [`src/misra_triage/`](src/misra_triage/README.md)
+
+---
 
 ## Architecture at a glance
 
@@ -36,7 +43,26 @@ flowchart LR
   J --> O
 ```
 
-End-to-end design, class model, and reliability path: **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)**.
+```mermaid
+sequenceDiagram
+  participant CI
+  participant CLI as misra-triage
+  participant Gate
+  participant Jira
+  CI->>CLI: triage --report-dir
+  CLI->>CLI: parse → enrich → diff
+  CLI->>Gate: evaluate(new)
+  alt blocking
+    Gate-->>CLI: FAIL
+    CLI->>Jira: grouped tickets
+    CLI-->>CI: exit 1
+  else clean
+    Gate-->>CLI: PASS
+    CLI-->>CI: exit 0
+  end
+```
+
+Deep dive: **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)**.
 
 ### Package map
 
@@ -61,6 +87,8 @@ src/misra_triage/
 | Ownership | Longest-prefix YAML maps |
 | Jira noise | Group by `(SWC, owner, DOORS, category)` |
 | Reliability | Row isolation, atomic baseline I/O, retry on 5xx |
+
+---
 
 ## Quick start
 
@@ -90,6 +118,8 @@ Or: `make install && make baseline && make triage`
 | `1` | Gate failed (new Mandatory / ASIL-C/D) |
 | `2` | Tool / config / parse failure |
 
+---
+
 ## Typical workflow
 
 ```mermaid
@@ -109,6 +139,8 @@ flowchart LR
 
 Full walkthrough: [User Guide](docs/USER_GUIDE.md).
 
+---
+
 ## CI integration
 
 ```yaml
@@ -120,7 +152,9 @@ Full walkthrough: [User Guide](docs/USER_GUIDE.md).
       --json-out > triage.json
 ```
 
-Artifact: `reports/triage_report.json` (dashboard-ready).
+Artifact: `reports/triage_report.json` (dashboard-ready). See [Operations](docs/OPERATIONS.md).
+
+---
 
 ## Configuration
 
@@ -135,11 +169,12 @@ export JIRA_API_TOKEN="***"
 
 Keep `jira.dry_run: true` until a sandbox project is validated. Details: [Configuration](docs/CONFIGURATION.md).
 
+---
+
 ## Testing
 
 ```bash
 make test
-# pytest --cov=misra_triage --cov-report=term-missing
 ```
 
 | Level | Location |
@@ -149,6 +184,8 @@ make test
 | Edge cases | `tests/edge/` |
 
 See [Development](docs/DEVELOPMENT.md) and [`tests/README.md`](tests/README.md).
+
+---
 
 ## License
 

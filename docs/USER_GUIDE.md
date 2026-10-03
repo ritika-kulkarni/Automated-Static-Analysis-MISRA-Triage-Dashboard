@@ -1,5 +1,9 @@
 # User Guide
 
+Practical guide to installing and running `misra-triage` in local and CI environments.
+
+Also see: [Architecture](ARCHITECTURE.md) · [Configuration](CONFIGURATION.md) · [Operations](OPERATIONS.md) · [FAQ](FAQ.md)
+
 ## Prerequisites
 
 - Python **3.9+**
