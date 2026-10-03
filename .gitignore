@@ -11,6 +11,7 @@ htmlcov/
 .venv/
 venv/
 .env
-reports/
+reports/*
+!reports/README.md
 *.tmp
 .DS_Store
